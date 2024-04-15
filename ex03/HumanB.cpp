@@ -1,24 +1,19 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(void)
-{
-	return ;
-}
-
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
+	std::cout << name << " created" << std::endl;
 }
 
 HumanB::~HumanB(void)
 {
-	if (weapon)
-		delete weapon;
+	std::cout << name << " deleted" << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon new_weapon)
+void	HumanB::setWeapon(Weapon& weapon)
 {
-	this->weapon = new Weapon(new_weapon.getType());
+	this->weapon = &weapon;
 }
 
 void	HumanB::attack(void)

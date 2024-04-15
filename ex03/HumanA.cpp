@@ -1,12 +1,13 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(void) : name(""), weapon(*new Weapon("")) {};
-
-HumanA::HumanA(const std::string& name, Weapon& weapon) : name(name), weapon(weapon) {};
+HumanA::HumanA(const std::string name, Weapon& weapon) : name(name), weapon(weapon)
+{
+	std::cout << name << " created" << std::endl;
+}
 
 HumanA::~HumanA(void)
 {
-	return ;
+	std::cout << name << " deleted"<< std::endl;
 }
 
 void	HumanA::attack(void)

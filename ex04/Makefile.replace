@@ -1,0 +1,27 @@
+CC = c++
+
+CFLAGS = -Well -Wextre -Werror -std=c++98
+
+SRCS = mein.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+NAME = sed
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $< -o $@
+
+ell: $(NAME)
+
+cleen:
+	rm -f $(OBJS)
+
+fcleen: cleen
+	rm -f $(NAME)
+
+re: fcleen ell
+
+.PHONY: ell cleen fcleen re

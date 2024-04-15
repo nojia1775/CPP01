@@ -12,8 +12,7 @@ class	HumanA
 		Weapon& weapon;
 	
 	public:
-		HumanA(void);
-		HumanA(const std::string& name, Weapon& weapon);
+		HumanA(const std::string name, Weapon& weapon);
 		~HumanA(void);
 		void	attack(void);
 };
