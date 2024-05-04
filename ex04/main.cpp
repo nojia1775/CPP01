@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 
-
 static int	read_file(std::string& str, char *argv)
 {
 	std::ifstream	file(argv);

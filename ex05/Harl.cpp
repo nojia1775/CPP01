@@ -32,13 +32,29 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	std::map<std::string, void (Harl::*)(void)> f_map;
-	f_map["DEBUG"] = &Harl::debug;
-	f_map["INFO"] = &Harl::info;
-	f_map["WARNING"] = &Harl::warning;
-	f_map["ERROR"] = &Harl::error;
-	if (f_map.find(level) != f_map.end())
-		(this->*f_map[level])();
-	else
-		std::cout << "Invalid level" << std::endl;
+	int	i;
+	std::string	tab[4] = {"DEBUG", "INFO", "WARNING","ERROR"};\
+	
+	i = -1;
+	while (++i < 4)
+		if (!level.compare(tab[i]))
+			break;
+	switch(i)
+	{
+		case 0:
+			debug();
+			break;
+		case 1:
+			info();
+			break;
+		case 2:
+			warning();
+			break;
+		case 3:
+			error();
+			break;
+		default:
+			std::cout <<  "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
+	}
 }
