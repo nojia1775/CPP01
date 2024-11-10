@@ -21,20 +21,6 @@ static int	ft_strlen(const char *str)
 	return (i);
 }
 
-static char	*ft_strcat(char *str, const char *cat)
-{
-	char *result = new char[ft_strlen(str) + ft_strlen(cat) + 1];
-	int i = 0;
-	int j = 0;
-	while (i < ft_strlen(str))
-		result[i++] = str[j++];
-	j = 0;
-	while (j < ft_strlen(cat))
-		result[i++] = cat[j++];
-	result[i] = '\0';
-	return (result);
-}
-
 static int	my_strstr(const char *tmp, const char *charset)
 {
 	int	i;
@@ -75,15 +61,14 @@ int	main(int argc, char **argv)
 {
 	std::string	str;
 	std::string	replace;
-	char	*result;
 
 	if (argc != 4)
 		return (1);
 	if (!read_file(str, argv[1]))
 		return (2);
-	result = ft_strcat(argv[1], ".replace");
+	std::string tmp = argv[1];
+	std::string result(tmp + ".replace");
 	std::ofstream	file(result);
-	delete result;
 	if (!file)
 		return (3);
 	str_replace(str, argv, file);
