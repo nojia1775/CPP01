@@ -7,7 +7,7 @@ int	main(void)
 	Weapon	w1("rifle");
 	HumanA player1("player1", w1);
 	player1.attack();
-	w1.setType("gun");
+	w1.setType("banana");
 	player1.attack();
 
 	Weapon	w2("gun");
